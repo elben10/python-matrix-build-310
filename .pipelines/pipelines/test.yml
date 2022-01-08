@@ -9,7 +9,7 @@ parameters:
     type: object
     default: ["3.7", "3.8", "3.9"]
 jobs:
-  - ${{ vmImage in parameters.vmImages }}:
+  - ${{ each vmImage in parameters.vmImages }}:
     - job: Testing_${{ replace(vmImage, '-', '') }}
       displayName: Testing - ${{ vmImage }} -
       pool:
