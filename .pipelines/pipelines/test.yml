@@ -8,9 +8,6 @@ parameters:
     displayName: Python Versions
     type: object
     default:
-      - "\"3.10\""
-      - '3.10'
-      - '"3.10"'
       - "3.10"
 jobs:
   - ${{ each vmImage in parameters.vmImages }}:
@@ -21,7 +18,7 @@ jobs:
       strategy:
         matrix:
           ${{ each pythonVersion in parameters.pythonVersions }}:
-            "Python${{ pythonVersion }}":
+            "Python${{ join(join('\"', pythonVersion), '\"') }}":
               pythonVersion: '${{ pythonVersion }}'
       steps:
         - task: UsePythonVersion@0
