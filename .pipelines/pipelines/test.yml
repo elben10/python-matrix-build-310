@@ -18,8 +18,8 @@ jobs:
       strategy:
         matrix:
           ${{ each pythonVersion in parameters.pythonVersions }}:
-            "Python${{ join(join('\"', pythonVersion), '\"') }}":
-              pythonVersion: '${{ pythonVersion }}'
+            "Python{{ variables.pythonVersion }}:
+              pythonVersion: ${{ pythonVersion }}
       steps:
         - task: UsePythonVersion@0
           inputs:
