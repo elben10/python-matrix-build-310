@@ -11,6 +11,7 @@ parameters:
       - "\"3.10\""
       - '3.10'
       - '"3.10"'
+      - "3.10"
 jobs:
   - ${{ each vmImage in parameters.vmImages }}:
     - job: Testing_${{ replace(vmImage, '-', '') }}
