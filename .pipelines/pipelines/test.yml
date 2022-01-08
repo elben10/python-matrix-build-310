@@ -18,7 +18,7 @@ jobs:
       strategy:
         matrix:
           ${{ each pythonVersion in parameters.pythonVersions }}:
-            "Python{{ variables.pythonVersion }}":
+            "Python{{ pythonVersion }}":
               pythonVersion: ${{ pythonVersion }}
       steps:
         - task: UsePythonVersion@0
